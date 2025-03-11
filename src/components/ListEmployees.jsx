@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ListEmployees() {
+export default function ListEmployees({ saveData }) {
     return (
         <table>
             <thead>
@@ -13,13 +13,15 @@ export default function ListEmployees() {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                {saveData.map((user, index) => (
+                    <tr key={index}>
+                        <td>{user.document}</td>
+                        <td>{user.name}</td>
+                        <td>{user.address}</td>
+                        <td>{user.phone}</td>
+                        <td>{user.status}</td>
+                    </tr>
+                ))}
             </tbody>
         </table>
     )
